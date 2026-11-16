@@ -4,68 +4,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Blog Tech</title>
+    <title>Fabio Augusto | Tech Blog</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            margin: 0;
-            padding: 30px 15px;
-            font-family: Arial, sans-serif;
-            background-color: #eef3f8;
-            color: #263445;
-            line-height: 1.6;
+        html {
+            scroll-behavior: smooth;
         }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #080d18;
+            color: #f1f5f9;
+            line-height: 1.7;
+        }
+
+        /* CABEÇALHO */
 
         header {
-            background-color: #183C63;
-            color: #FFFFFF;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 25px 16px;
-            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 9%;
+            background: rgba(8, 13, 24, 0.85);
+            border-bottom: 1px solid #1e293b;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(15px);
         }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* DESTAQUE */
+
+        .hero {
+            min-height: 430px;
+            padding: 100px 9%;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(circle at 80% 40%, #123a5b 0%, transparent 35%),
+                linear-gradient(120deg, #0b1425, #080d18);
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 7px 15px;
+            border: 1px solid #075985;
+            background: #082f49;
+            color: #7dd3fc;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 65px);
+            line-height: 1.12;
+            margin-bottom: 22px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            color: #94a3b8;
+            max-width: 570px;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background: #0284c7;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: #38bdf8;
+            transform: translateY(-3px);
+        }
+
+        /* CONTEÚDO */
 
         main {
-            background-color: #FFFFFF;
-            max-width: 800px;
-            margin: 25px auto;
-            padding: 25px;
-            border-radius: 12px;
+            max-width: 1150px;
+            margin: auto;
+            padding: 75px 25px;
         }
 
-        img {
-            width: 80px;
-            height: 80px;
+        .section-title {
+            margin-bottom: 35px;
+        }
+
+        .section-title small {
+            color: #38bdf8;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-top: 8px;
+        }
+
+        .posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* CARDS */
+
+        article {
+            background: #111b2d;
+            border: 1px solid #24334a;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        article:hover {
+            transform: translateY(-8px);
+            border-color: #0284c7;
+            box-shadow: 0 15px 35px rgba(0, 132, 199, 0.12);
+        }
+
+        article img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
             display: block;
-            margin: 0 auto 15px;
-            border-radius: 12px;
         }
 
-        h2 {
-            color: #183C63;
+        .article-content {
+            padding: 25px;
         }
 
-        .autor {
-            color: #718096;
+        .category {
+            color: #38bdf8;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        article h3 {
+            font-size: 21px;
+            margin: 10px 0;
+            line-height: 1.35;
+        }
+
+        article p {
+            color: #94a3b8;
             font-size: 14px;
+            margin-bottom: 20px;
         }
 
-        .destaque {
-            background-color: #eef5fc;
-            padding: 15px;
-            border-left: 4px solid #183C63;
-            border-radius: 5px;
+        .read-more {
+            color: #38bdf8;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
         }
+
+        .read-more:hover {
+            color: white;
+        }
+
+        /* SOBRE */
+
+        .about {
+            margin-top: 80px;
+            padding: 35px;
+            border-radius: 16px;
+            background: linear-gradient(120deg, #10243c, #111b2d);
+            border: 1px solid #24334a;
+        }
+
+        .about h2 {
+            margin-bottom: 12px;
+        }
+
+        .about p {
+            color: #a6b4c8;
+        }
+
+        /* RODAPÉ */
 
         footer {
             text-align: center;
-            color: #718096;
+            padding: 30px 20px;
+            border-top: 1px solid #1e293b;
+            color: #64748b;
             font-size: 13px;
+        }
+
+        footer span {
+            color: #38bdf8;
+        }
+
+        /* CELULAR */
+
+        @media (max-width: 650px) {
+            header {
+                padding: 18px 6%;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                gap: 18px;
+            }
+
+            .hero {
+                padding: 75px 7%;
+            }
+
+            main {
+                padding: 55px 20px;
+            }
+
+            .about {
+                padding: 25px;
+            }
         }
     </style>
 </head>
@@ -73,48 +281,125 @@
 <body>
 
     <header>
-        <h1>Meu Blog Tech</h1>
-        <p>Compartilhando conhecimentos sobre tecnologia e programação.</p>
+        <div class="logo">FABIO<span>.</span>TECH</div>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#artigos">Artigos</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
     </header>
 
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <span class="tag">TECNOLOGIA • INOVAÇÃO • CONHECIMENTO</span>
+
+            <h1>O futuro começa com <span>uma ideia.</span></h1>
+
+            <p>
+                Um espaço dedicado à tecnologia, inovação e ao universo digital.
+                Descubra conteúdos, explore ideias e acompanhe as novidades
+                que estão transformando o mundo.
+            </p>
+
+            <a href="#artigos" class="hero-button">
+                Explorar artigos →
+            </a>
+        </div>
+    </section>
+
     <main>
-        <article>
 
-            <img
-                src="https://placehold.co/80x80/183C63/FFFFFF?text=TECH"
-                alt="Logotipo de tecnologia representando inovação e aprendizado."
-            >
+        <section id="artigos">
+            <div class="section-title">
+                <small>CONTEÚDO EXCLUSIVO</small>
+                <h2>Explore o universo tech.</h2>
+            </div>
 
-            <h2>Meu primeiro post</h2>
+            <div class="posts">
 
-            <p class="autor">
-                Por: Fabio Augusto Alves dos Santos
-            </p>
+                <article>
+                    <img
+                        src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=900"
+                        alt="Placa eletrônica com componentes tecnológicos"
+                    >
+
+                    <div class="article-content">
+                        <span class="category">Tecnologia</span>
+
+                        <h3>A tecnologia que transforma nosso futuro</h3>
+
+                        <p>
+                            Entenda como os avanços tecnológicos estão
+                            mudando a maneira como vivemos, trabalhamos
+                            e nos conectamos.
+                        </p>
+
+                        <a href="#" class="read-more">Continuar lendo →</a>
+                    </div>
+                </article>
+
+                <article>
+                    <img
+                        src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900"
+                        alt="Representação visual de inteligência artificial"
+                    >
+
+                    <div class="article-content">
+                        <span class="category">Inteligência artificial</span>
+
+                        <h3>Como a inteligência artificial está evoluindo</h3>
+
+                        <p>
+                            Conheça o impacto da inteligência artificial
+                            e como ela está presente em diferentes áreas
+                            do nosso cotidiano.
+                        </p>
+
+                        <a href="#" class="read-more">Continuar lendo →</a>
+                    </div>
+                </article>
+
+                <article>
+                    <img
+                        src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900"
+                        alt="Pessoas trabalhando juntas com computadores"
+                    >
+
+                    <div class="article-content">
+                        <span class="category">Inovação</span>
+
+                        <h3>O poder da inovação no mundo digital</h3>
+
+                        <p>
+                            Descubra como novas ideias e soluções digitais
+                            ajudam a construir oportunidades e transformar
+                            o mercado.
+                        </p>
+
+                        <a href="#" class="read-more">Continuar lendo →</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="about" id="sobre">
+            <h2>Sobre o Fabio Tech</h2>
 
             <p>
-                Olá! Seja bem-vindo ao meu blog. Este espaço foi criado
-                para compartilhar conhecimentos, ideias e novidades
-                sobre tecnologia e programação.
+                O Fabio Tech é um blog criado para compartilhar informações
+                e conhecimentos sobre tecnologia, inovação e transformação
+                digital. Um espaço para aprender, descobrir novidades e
+                explorar as possibilidades do mundo tecnológico.
             </p>
+        </section>
 
-            <p>
-                A tecnologia está presente em nosso cotidiano e transforma
-                a maneira como estudamos, trabalhamos e nos comunicamos.
-                Aprender programação é uma oportunidade de desenvolver
-                novas habilidades e criar soluções.
-            </p>
-
-            <p class="destaque">
-                Meu objetivo é continuar aprendendo, explorar novas
-                ferramentas e compartilhar minhas descobertas.
-                Obrigado pela visita!
-            </p>
-
-        </article>
     </main>
 
     <footer>
-        <p>Desenvolvido por Fabio Augusto Alves dos Santos.</p>
+        <p>Desenvolvido por <span>Fabio Augusto Alves dos Santos</span></p>
+        <p>© 2026 Fabio Tech. Todos os direitos reservados.</p>
     </footer>
 
 </body>
